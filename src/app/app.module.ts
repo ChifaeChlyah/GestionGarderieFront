@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddPageComponent } from './components/add-page/add-page.component';
 import { GetAllPageComponent } from './components/get-all-page/get-all-page.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { GetAllPageComponent } from './components/get-all-page/get-all-page.comp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
