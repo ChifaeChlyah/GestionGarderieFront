@@ -1,0 +1,44 @@
+<div class="container mr-5 mt-5" style="width: 50%;">
+<form [formGroup]="userFormGroup" >
+    <div class="form-group">
+      <label for="nom">Nom </label>
+      <input type="text" class="form-control" id="nom"  placeholder="Enter nom" formControlName="nom">
+    </div>
+    <div class="form-group">
+        <label for="prenom">Prenom </label>
+        <input type="text" class="form-control" id="prenom" aria-describedby="emailHelp" placeholder="Enter prenom" formControlName="prenom">
+      </div>
+      <div class="form-group">
+        <label for="age">Age </label>
+        <input type="number" class="form-control" id="age" aria-describedby="emailHelp" placeholder="Enter age" formControlName="age">
+      </div>
+
+      <div class="form-group">
+        <label for="age">Niveau </label>
+      <select class="form-control" >
+        <option>niveau 1</option>
+        <option>niveau 1</option>
+        <option>niveau 1</option>
+      </select>
+    </div>
+
+
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Special</label>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="exampleFormControlSelect2">Activit </label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
