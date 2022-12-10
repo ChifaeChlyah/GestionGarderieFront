@@ -1,1 +1,35 @@
-<p>get-all-page works!</p>
+<div class="container mt-5 m-5">
+
+    <h2>List des Enfants </h2> <button class="btn btn-primary" style="float: right; "> Ajouter enfant</button>
+</div>
+<div class="conainer mt-5 mb-5 m-5">
+    <table class="table">
+        <caption> Liste des enfants </caption>
+        <thead>
+          <tr>
+
+            <th scope="col">Nom </th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Age</th>
+            <th scope="col">niveau </th>
+            <th scope="col"> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let enfant of enfants">
+            <td>{{enfant.nom}}</td>
+            <td>{{enfant.prenom}}</td>
+            <td>{{enfant.age}}</td>
+            <td>{{enfant.niveau}}</td>
+            <td>
+                <button class="btn btn-danger"> delete</button>
+                <button class="btn btn-dark m-1"> edit</button>
+                <button class="btn btn-dark m-1"> Parent</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+</div>
+

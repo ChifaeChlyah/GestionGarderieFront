@@ -1,0 +1,40 @@
+<div class="container mr-5 mt-5" style="width: 50%;">
+    <form [formGroup]="userFormGroup" >
+        <div class="form-group">
+          <label for="nom">Nom </label>
+          <input type="text" class="form-control" id="nom"  placeholder="Enter nom" formControlName="nom">
+        </div>
+
+        <div class="form-group">
+            <label for="prenom">Prenom </label>
+            <input type="text" class="form-control" id="prenom"  placeholder="Enter prenom" formControlName="prenom">
+          </div>
+          <div class="form-group">
+            <label for="age">Age </label>
+            <input type="number" class="form-control" id="age"  placeholder="Enter age" formControlName="age">
+          </div>
+
+
+        <div class="form-group">
+            <label for="cne"> Cne </label>
+            <input type="text" class="form-control" id="cne"  placeholder="Enter cne" formControlName="cne">
+          </div>
+
+          <div class="form-group">
+            <label for="email"> Email </label>
+            <input type="email" class="form-control" id="email"  placeholder="Enter email" formControlName="email">
+          </div>
+
+          <div class="form-group">
+            <label for="motDePasse"> Mot de passe </label>
+            <input type="password" class="form-control" id="motDePasse"  placeholder="Enter le mot de  passe" formControlName="motDePasse">
+          </div>
+
+          <div class="form-group">
+            <label for="tel"> Mot de passe </label>
+            <input type="tel" class="form-control" id="motDePasse"  placeholder="Enter prenom" formControlName="tel">
+          </div>
+
+        <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
+      </form>
+    </div>

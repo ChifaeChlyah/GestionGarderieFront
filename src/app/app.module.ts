@@ -8,13 +8,19 @@ import { AddPageComponent } from './components/add-page/add-page.component';
 import { GetAllPageComponent } from './components/get-all-page/get-all-page.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ChooseConnectionComponent } from './components/choose-connection/choose-connection.component';
+import { AddComponent } from './components/parents/add/add.component';
+import { ListComponent } from './components/parents/list/list.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPageComponent,
     GetAllPageComponent,
-    ChooseConnectionComponent
+    ChooseConnectionComponent,
+    AddComponent,
+    ListComponent
+
   ],
   imports: [
     BrowserModule,

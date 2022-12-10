@@ -26,7 +26,7 @@ export class HttpService {
     // };
     const url = environment.apiUrl + serviceName;
 
-    return this.http.post(url, data );
+    return this.http.post(url, data  );
   }
 
 
