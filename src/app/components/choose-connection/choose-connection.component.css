@@ -1,0 +1,25 @@
+.card-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+.card{
+  height: 300px;
+  width: 300px;
+  margin: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 10px 5px 5px #1110104f;
+  cursor: pointer;
+}
+
+.card:hover{
+  box-shadow: 10px 5px 5px #11101099;
+  color: darkslateblue;
+}
+.fa-solid{
+  font-size: 70px;
+  margin: 30px;
+}

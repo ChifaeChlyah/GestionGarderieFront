@@ -1,0 +1,56 @@
+<div id="my-connexion-body">
+  <div id="form-container">
+    <div id="right-form">
+      <i style="font-size: xxx-large;" class="fa-solid fa-business-time"></i>
+      <span style="font-size: xxx-large;">GEPPI</span>
+      <p style="width: 50%;text-align: center"> Gestion de Portefeuilles de Projets Informatiques</p>
+
+    </div>
+    <!-- Default form login -->
+    <div id="my-form">
+      <form  [formGroup]="loginFormGroup" *ngIf="loginFormGroup" style="width: 90%" class="text-center p-5 " action="#!">
+
+        <p class="h4 mb-4" style="font-size: 6rem!important; color:#343a40;"><i class="fa-solid fa-circle-user"></i></p>
+        <div class="alert alert-danger" *ngIf="mode==1">
+          <strong>Email ou mot de passe invalide </strong>
+        </div>
+
+        <!-- Email -->
+        <input (click)="onInputClick()" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" formControlName="email">
+<!--               [ngClass]="{'is-invalid': submitted && loginFormGroup.controls.email.errors}">-->
+<!--        <div *ngIf="submitted && loginFormGroup.controls.email.errors" class=-->
+<!--          "invalid-feedback">-->
+<!--          <div *ngIf="loginFormGroup.controls.email.errors.required">Ce champs est obligatoire</div>-->
+<!--        </div>-->
+        <div class="alert-danger" *ngIf="loginFormGroup.controls['email']?.['touched'] &&  loginFormGroup.controls['email']?.['invalid']" >
+          <div *ngIf="loginFormGroup.controls['email']?.errors?.['required']"> *Email is required </div>
+        </div>
+
+        <!-- Password -->
+        <input (click)="onInputClick()" type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Mot de passe" formControlName="password">
+<!--               [ngClass]="{'is-invalid': submitted && loginFormGroup.controls.password.errors}">-->
+<!--        <div *ngIf="submitted && loginFormGroup.controls.password.errors" class=-->
+<!--          "invalid-feedback">-->
+<!--          <div *ngIf="loginFormGroup.controls.password.errors.required">Ce champs est obligatoire</div>-->
+<!--        </div>-->
+        <div class="alert-danger" *ngIf="loginFormGroup.controls['password']?.['touched'] &&  loginFormGroup.controls['password']?.['invalid']" >
+          <div *ngIf="loginFormGroup.controls['password']?.errors?.['required']"> *Password is required </div>
+        </div>
+        <div class="d-flex justify-content-around">
+
+
+          <div style="margin-top: 1.5rem!important;">
+            <!-- Forgot password -->
+            <a style="color: #0e2888;text-decoration: underline; ">Mot de passe oublié?</a>
+          </div>
+        </div>
+
+        <!-- Sign in button -->
+        <button class="btn btn-dark btn-block my-4" type="submit" (click)="login()">S'authentifier</button>
+
+
+      </form>
+    </div>
+    <!-- Default form login -->
+  </div>
+</div>
