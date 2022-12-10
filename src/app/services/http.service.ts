@@ -19,14 +19,14 @@ export class HttpService {
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
 
-    const options = {
-      headers,
-      withCredintials: false,
-      observe: "response" as 'body'
-    };
+    // const options = {
+    //   headers,
+    //   withCredintials: false,
+    //   observe: "response" as 'body'
+    // };
     const url = environment.apiUrl + serviceName;
 
-    return this.http.post(url, data, options);
+    return this.http.post(url, data );
   }
 
 
@@ -72,6 +72,7 @@ export class HttpService {
 
     return this.http.delete(url, options);
   }
+
 
 
 }
