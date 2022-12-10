@@ -7,18 +7,20 @@ import { AppComponent } from './app.component';
 import { AddPageComponent } from './components/add-page/add-page.component';
 import { GetAllPageComponent } from './components/get-all-page/get-all-page.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { ChooseConnectionComponent } from './components/choose-connection/choose-connection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPageComponent,
-    GetAllPageComponent
+    GetAllPageComponent,
+    ChooseConnectionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
