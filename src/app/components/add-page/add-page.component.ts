@@ -30,7 +30,7 @@ export class AddPageComponent implements OnInit{
   save(){
 
 
-    this.http.post("/enfant",this.userFormGroup.value).subscribe(
+    this.http.post("enfant/ENFANT_NORMAL",this.userFormGroup.value).subscribe(
       (response:any)=>{
         console.log("done ==> ", response)
       } , (err : any )=>  {

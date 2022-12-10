@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AddPageComponent } from './components/add-page/add-page.component';
 import { GetAllPageComponent } from './components/get-all-page/get-all-page.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
