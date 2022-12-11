@@ -72,4 +72,7 @@
   background: #04357c!important;
   /*background: #084298!important;*/
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

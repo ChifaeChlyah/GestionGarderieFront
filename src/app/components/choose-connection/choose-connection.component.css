@@ -14,7 +14,19 @@
   box-shadow: 10px 5px 5px #1110104f;
   cursor: pointer;
 }
+:host {
+  display:block;
+  /*background-color: red;*/
+  /*background: linear-gradient(to bottom, #12426c 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);*/
+  /* Created with https://www.css-gradient.com */
+  /* Created with https://www.css-gradient.com */
+  background: #04474E;
+  background: -webkit-linear-gradient(top left, #04474E, #7371E9);
+  background: -moz-linear-gradient(top left, #04474E, #7371E9);
+  background: linear-gradient(to bottom right, #04474E, #7371E9);
 
+  height: 750px;
+}
 .card:hover{
   box-shadow: 10px 5px 5px #11101099;
   color: darkslateblue;
