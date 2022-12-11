@@ -19,14 +19,10 @@ export class HttpService {
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
 
-    // const options = {
-    //   headers,
-    //   withCredintials: false,
-    //   observe: "response" as 'body'
-    // };
+
     const url = environment.apiUrl + serviceName;
 
-    return this.http.post(url, data  );
+    return this.http.post(url,data);
   }
 
 
@@ -39,7 +35,7 @@ export class HttpService {
     const url = environment.apiUrl + serviceName;
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
-      // .set('Authorization', `Bearer ${token}`);
+
 
     const options = {
       headers,
