@@ -28,7 +28,7 @@ export class ParentConnectionComponent {
     this.submitted=true;
     if(this.loginFormGroup?.invalid) return;
     else{
-      this.authService.loginAdmin(this.loginFormGroup.value.email,this.loginFormGroup.value.password).subscribe(
+      this.authService.loginParent(this.loginFormGroup.value.email,this.loginFormGroup.value.password).subscribe(
         resp=>{
           console.log(resp.body);
           if(resp.body==true)

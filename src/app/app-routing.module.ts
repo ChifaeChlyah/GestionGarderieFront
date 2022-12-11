@@ -6,7 +6,7 @@ import {ChooseConnectionComponent} from "./components/choose-connection/choose-c
 import {AdminConnectionComponent} from "./components/admin-connection/admin-connection.component";
 import {ParentConnectionComponent} from "./components/parent-connection/parent-connection.component";
 import {DashboardAdminComponent} from "./components/dashboard-admin/dashboard-admin.component";
-import {ParentPageComponent} from "./parent-page/parent-page.component";
+import {ParentPageComponent} from "./components/parent-page/parent-page.component";
 
 const routes: Routes = [
   {path :"add" , component : AddPageComponent},
