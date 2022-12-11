@@ -3,7 +3,9 @@ import { AddPageComponent } from './components/add-page/add-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddComponent } from './components/parents/add/add.component';
+import { AddComponent as AddEdu} from './components/aide-educateur/add/add.component';
 import { ListComponent } from './components/parents/list/list.component';
+import { ListComponent as ListEdu} from './components/aide-educateur/list/list.component';
 import {ChooseConnectionComponent} from "./components/choose-connection/choose-connection.component";
 import {AdminConnectionComponent} from "./components/admin-connection/admin-connection.component";
 import {ParentConnectionComponent} from "./components/parent-connection/parent-connection.component";
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path: "get",component : GetAllPageComponent},
   {path: "add-parent",component : AddComponent},
   {path: "get-parent",component : ListComponent},
+  {path: "add-aide-educateur",component : AddEdu},
+  {path: "get-aide-educateur",component : ListEdu},
   {path: "",component : ChooseConnectionComponent},
   {path: "admin-connection",component : AdminConnectionComponent},
   {path: "parent-connection",component : ParentConnectionComponent},

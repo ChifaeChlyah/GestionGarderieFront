@@ -17,11 +17,17 @@ export class GetAllPageComponent implements OnInit {
 
   ngOnInit(): void {
       this.getEnfants();
-      // this.getParents();
-      // this.getNiveaux();
+
   }
 
 
+  delete(id : any){
+    this.enfants=this.enfants.filter((f)=> f.id !== id)
+    this.httpService.authDelete("parent/"+id).subscribe({
+      next : (data : any)=>{
+      }
+    })
+  }
 
 
   getEnfants(){

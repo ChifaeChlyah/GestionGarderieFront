@@ -1,6 +1,6 @@
 <div class="container mt-5 m-5">
 
-    <h2>List des Enfants </h2> <button class="btn btn-primary" style="float: right; "> Ajouter enfant</button>
+    <h2>List des Enfants </h2> <button class="btn btn-primary" style="float: right; " routerLink="/add"> Ajouter enfant</button>
 </div>
 <div class="conainer mt-5 mb-5 m-5">
     <table class="table">
@@ -22,9 +22,10 @@
             <td>{{enfant.age}}</td>
             <td>{{enfant.niveau}}</td>
             <td>
-                <button class="btn btn-danger"> delete</button>
-                <button class="btn btn-dark m-1"> edit</button>
-                <button class="btn btn-dark m-1"> Parent</button>
+              <i class="fa-solid fa-trash" (click)="delete(enfant.id)" style="color: brown; width: 20px; font-size:large; margin-right: 30px; cursor: pointer;"></i>
+              <i class="fa-solid fa-pen-to-square" style="width: 20px; font-size:large;cursor: pointer;"></i>
+
+
             </td>
           </tr>
 

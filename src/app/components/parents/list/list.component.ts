@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 export class ListComponent {
 
   parents : any[]=[];
+  parent : any;
   constructor(private httpService : HttpService ,
 
     ) {
@@ -20,8 +21,23 @@ export class ListComponent {
 
   }
 
+  getParentById(data : any){
+    this.httpService.authGet("parent/"+data).subscribe({
+      next : (res: any)=>{
+        this.parent=res.body;
+        console.log(this.parent);
+      }
+    })
+  }
 
-
+  delete(id : any){
+    this.parents=this.parents.filter((f)=> f.id !== id)
+    this.httpService.authDelete("parent/"+id).subscribe({
+      next : (data : any)=>{
+      }
+    })
+  }
+  
 
   getParents(){
     this.httpService.authGet("parent")

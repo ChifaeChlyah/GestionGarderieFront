@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpService } from './../../../services/http.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
@@ -13,6 +14,7 @@ export class AddComponent {
 
     private http :HttpService ,
     private fb : FormBuilder,
+    private route:Router
   ){
 
   }
@@ -35,9 +37,11 @@ export class AddComponent {
 
     this.http.post("parent",this.userFormGroup.value).subscribe(
       (response:any)=>{
+        this.route.navigate(["/get-parent"])
         console.log("done ==> ", response)
       } , (err : any )=>  {
          console.log(err);
+
       }
     )
 
