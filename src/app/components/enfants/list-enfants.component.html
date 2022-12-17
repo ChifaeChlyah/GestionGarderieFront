@@ -21,7 +21,7 @@
             <td>{{enfant.nom}}</td>
             <td>{{enfant.prenom}}</td>
             <td>{{enfant.age}}</td>
-            <td>{{enfant.niveau}}</td>
+            <td ><span *ngIf="enfant.niveau">{{enfant.niveau.nom}}</span></td>
             <td>
               <i class="fa-solid fa-trash" (click)="delete(enfant.id)" style="color: brown; width: 20px; font-size:large; margin-right: 30px; cursor: pointer;"></i>
               <i class="fa-solid fa-pen-to-square" style="width: 20px; font-size:large;cursor: pointer;"></i>
@@ -45,59 +45,84 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Ajouter un parent</h4>
+        <h4 class="modal-title">Ajouter un enfant</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <div class="container mr-5 mt-5" style="width: 80%;">
-        <form [formGroup]="userFormGroup" >
+        <form [formGroup]="enfantFormGroup">
+          <div [hidden]="!formEnfant" >
+          <h5>Informations de l'enfant</h5>
           <div class="form-group">
-            <label for="nom">Nom </label>
-            <input type="text" class="form-control" id="nom"  placeholder="Enter nom" formControlName="nom">
-          </div>
-          <div class="form-group">
-            <label for="prenom">Prenom </label>
-            <input type="text" class="form-control" id="prenom" aria-describedby="emailHelp" placeholder="Enter prenom" formControlName="prenom">
+            <label for="nomEnfant">Nom de l'enfant :</label>
+            <input type="text" class="form-control" id="nomEnfant"  placeholder="Nom de l'enfant" formControlName="nom">
           </div>
           <div class="form-group">
-            <label for="age">Age </label>
-            <input type="number" class="form-control" id="age" aria-describedby="emailHelp" placeholder="Enter age" formControlName="age">
+            <label for="prenomEnfant">Prénom de l'enfant :</label>
+            <input type="text" class="form-control" id="prenomEnfant" aria-describedby="emailHelp" placeholder="Prénom de l'enfant " formControlName="prenom">
           </div>
+          <div class="form-group">
+            <label for="age">Age de l'enfant :</label>
+            <input type="number" class="form-control" id="age" aria-describedby="emailHelp" placeholder="Age de l'enfant" formControlName="age">
+          </div>
+
+
 
           <div class="form-group">
-            <label for="age">Niveau </label>
-            <select class="form-control" >
-              <option>niveau 1</option>
-              <option>niveau 1</option>
-              <option>niveau 1</option>
-            </select>
+          <label for="special">Enfant spécial ? </label>
+          <select multiple class="form-select" id="special">
+            <option>ENFANT AUTISTE</option>
+            <option>ENFANT HYPERACTIF</option>
+            <option>ENFANT SURDOUE</option>
+          </select>
           </div>
-
-
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Special</label>
           </div>
-
-          <div class="form-group mb-3">
-            <label for="exampleFormControlSelect2">Activit </label>
-            <select multiple class="form-control" id="exampleFormControlSelect2">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-
         </form>
+          <form [formGroup]="parentFormGroup" >
+            <div [hidden]="formEnfant" >
+              <h5>Informations du parent</h5>
+            <div class="form-group mt-3">
+              <label for="nomParent">Nom du parent :</label>
+              <input type="text" class="form-control" id="nomParent"  placeholder="Nom du parent" formControlName="nom">
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="prenomParent">Prénom du parent :</label>
+              <input type="text" class="form-control" id="prenomParent"  placeholder="Prénom du parent" formControlName="prenom">
+            </div>
+
+
+            <div class="form-group mt-3">
+              <label for="cne"> Cne de parent :</label>
+              <input type="text" class="form-control" id="cne"  placeholder="Cne de parent" formControlName="cne">
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="email"> Email du parent :</label>
+              <input type="email" class="form-control" id="email"  placeholder="Email du parent" formControlName="email">
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="motDePasse"> Mot de passe du parent :</label>
+              <input type="password" class="form-control" id="motDePasse"  placeholder="Mot de passe du parent" formControlName="motDePasse">
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="tel"> Numero de telephone du parent :</label>
+              <input type="text" class="form-control" id="tel"  placeholder="Numero de telephone du parent" formControlName="tel">
+            </div>
+            </div>
+          </form>
+        <div class="next-prev">
+          <button type="button" [disabled]="formEnfant" style="width: 40%" class="btn btn-light" (click)="formEnfant=true" ><i class="fa-solid fa-backward"></i> Précédent</button>
+          <button type="button" [disabled]="!formEnfant" style="width: 40%" class="btn btn-light" (click)="formEnfant=false" >Suivant <i class="fa-solid fa-forward"></i></button>
+        </div>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer" style="margin-top: 20px;display: flex;justify-content: center">
-        <button type="button" class="btn btn-primary"  style="width: 80%" (click)="save()" data-bs-dismiss="modal">Save</button>
+        <button type="button" [disabled]="parentFormGroup.status.includes('INVALID')||parentFormGroup.status.includes('INVALID')" class="btn btn-primary"  style="width: 80%" (click)="save()" data-bs-dismiss="modal">Save</button>
       </div>
-
     </div>
   </div>
 </div>

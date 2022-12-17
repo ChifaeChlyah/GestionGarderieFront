@@ -2,7 +2,7 @@
 
     <h2>List des Parents </h2> <button class="btn btn-primary" style="float: right;"
                                        data-bs-toggle="modal" data-bs-target="#myModal"
-                                       > Ajouter Parent</button>
+                                       > Ajouter ParentModel</button>
 </div>
 <div class="conainer mt-5 mb-5 m-5">
     <table class="table">
@@ -14,6 +14,9 @@
             <th scope="col">Prenom</th>
             <th scope="col">Cne</th>
             <th scope="col">Email </th>
+            <th scope="col">Numero Tel </th>
+            <th scope="col">Payement </th>
+<!--            <th scope="col">Enfant </th>-->
             <th scope="col"> Action </th>
           </tr>
         </thead>
@@ -23,6 +26,12 @@
             <td>{{parent.prenom}}</td>
             <td>{{parent.cne}}</td>
             <td>{{parent.email}}</td>
+            <td>{{parent.tel}}</td>
+<!--            <td>{{parent.enfant}}</td>-->
+            <td style="font-size: large">
+              <span *ngIf="parent.statutPayement==true" style="color: #0bd000"><i class="fa-solid fa-sack-dollar"></i> <i class="fa-sharp fa-solid fa-check"></i></span>
+              <span *ngIf="parent.statutPayement==false" style="color: darkred"><i class="fa-solid fa-sack-dollar"></i> <i class="fa-solid fa-xmark"></i></span>
+            </td>
             <td>
             <i class="fa-solid fa-trash" (click)="delete(parent.id)" style="color: brown; width: 20px; font-size:large; margin-right: 30px; cursor: pointer;"></i>
             <i class="fa-solid fa-pen-to-square" style="width: 20px; font-size:large;cursor: pointer;"></i>
@@ -49,7 +58,7 @@
       </div>
 
       <div class="container" style="width: 80%;">
-        <form [formGroup]="userFormGroup" >
+        <form [formGroup]="parentFormGroup" >
           <div class="form-group mt-3">
             <label for="nom">Nom </label>
             <input type="text" class="form-control" id="nom"  placeholder="Enter nom" formControlName="nom">

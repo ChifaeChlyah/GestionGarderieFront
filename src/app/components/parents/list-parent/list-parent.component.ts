@@ -1,8 +1,8 @@
 import { HttpService } from './../../../services/http.service';
 import { Component } from '@angular/core';
-import {AddComponent} from "../add-parent/add.component";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {ParentModel} from "../../../models/Parent.model";
 
 @Component({
   selector: 'app-list-parents',
@@ -10,8 +10,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./list-parent.component.css']
 })
 export class ListParentComponent {
-  userFormGroup !: FormGroup;
-  parents : any[]=[];
+  parentFormGroup !: FormGroup;
+  parents : ParentModel[]=[];
   parent : any;
   constructor(private httpService : HttpService ,
               private http :HttpService ,
@@ -23,7 +23,7 @@ export class ListParentComponent {
 
   ngOnInit(): void {
       this.getParents();
-      this.initAdd();
+      this.initAddParent();
   }
 
   getParentById(data : any){
@@ -60,11 +60,11 @@ export class ListParentComponent {
 
 
 
-  initAdd()
+  initAddParent()
   {
-    this.userFormGroup=this.fb.group({
-      nom : new FormControl('', [Validators.required ] ),
-      prenom : new FormControl('', [Validators.required] ),
+    this.parentFormGroup=this.fb.group({
+      nomParent : new FormControl('', [Validators.required ] ),
+      prenomParent : new FormControl('', [Validators.required] ),
       cne : new FormControl('',Validators.required ),
       email : new FormControl('',Validators.required ),
       motDePasse : new FormControl('',Validators.required ),
@@ -73,7 +73,7 @@ export class ListParentComponent {
     });
   }
   save(){
-    this.http.post("parent",this.userFormGroup.value).subscribe(
+    this.http.post("parent",this.parentFormGroup.value).subscribe(
       (response:any)=>{
         this.route.navigate(["/get-parent"])
         console.log("done ==> ", response)

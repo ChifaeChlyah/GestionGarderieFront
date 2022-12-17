@@ -1,9 +1,6 @@
 import { ListEnfantsComponent } from './components/enfants/list-enfants.component';
-import { AddPageComponent } from './components/add-page/add-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddComponent } from './components/parents/add-parent/add.component';
-import { AddAideEducComponent as AddEdu} from './components/aide-educateur/add/add-aide-educ.component';
 import { ListParentComponent } from './components/parents/list-parent/list-parent.component';
 import { ListAideEducComponent as ListEdu} from './components/aide-educateur/list/list-aide-educ.component';
 import {ChooseConnectionComponent} from "./components/choose-connection/choose-connection.component";
@@ -14,7 +11,6 @@ import {ParentPageComponent} from "./components/parent-page/parent-page.componen
 
 
 const routes: Routes = [
-  {path :"add" , component : AddPageComponent},
   {path: "",component : ChooseConnectionComponent},
   {path: "admin-connection",component : AdminConnectionComponent},
   {path: "parent-connection",component : ParentConnectionComponent},
