@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import { environment } from '../utile/environement';
+import {Observable} from "rxjs";
+import {ParentModel} from "../models/Parent.model";
+import {EnfantModel} from "../models/Enfant.model";
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +72,13 @@ export class HttpService {
     return this.http.delete(url, options);
   }
 
+  getParent(id: string | null):Observable<HttpResponse<ParentModel>>{
+    return this.http.get<ParentModel>(environment.apiUrl+"parent/"+id,{observe:"response"});
+  }
+
+  getEnfantByParentId(id: string | null):Observable<HttpResponse<EnfantModel>>{
+    return this.http.get<EnfantModel>(environment.apiUrl+"parent/enfantByParentId/"+id,{observe:"response"});
+  }
 
 
 }

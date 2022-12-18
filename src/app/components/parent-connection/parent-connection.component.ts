@@ -31,8 +31,8 @@ export class ParentConnectionComponent {
       this.authService.loginParent(this.loginFormGroup.value.email,this.loginFormGroup.value.password).subscribe(
         resp=>{
           console.log(resp.body);
-          if(resp.body==true)
-            this.router.navigateByUrl("parent-page")
+          if(resp.body)
+            this.router.navigateByUrl("parent-page/"+resp.body)
           else
             this.mode=1;
         },

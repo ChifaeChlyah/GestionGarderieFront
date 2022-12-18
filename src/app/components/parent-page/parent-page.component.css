@@ -1,0 +1,22 @@
+.card{
+  width: 500px;
+  margin: 40px;
+  height: 500px;
+  background: aliceblue;
+}
+.card2{
+  width: 700px;
+  margin: 40px;
+  height: 400px;
+  background: #0dcaf05e;
+}
+.champs-parent{
+  font-size: large;
+  margin: 20px;
+  border-bottom: 1px solid #8080804a;
+}
+.card-title{
+  text-align: center;
+  margin: 10px;
+  border-bottom: 1px solid gray;
+}

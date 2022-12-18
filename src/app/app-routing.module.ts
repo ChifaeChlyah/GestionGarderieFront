@@ -20,7 +20,7 @@ const routes: Routes = [
       {path: "list-enfants",component : ListEnfantsComponent},
       {path: "list-aide-educateur",component : ListEdu},
     ]},
-  {path: "parent-page",component : ParentPageComponent},
+  {path: "parent-page/:id",component : ParentPageComponent},
 
 ];
 

@@ -1,1 +1,31 @@
-<p>parent-page works!</p>
+<app-nav-bar-top></app-nav-bar-top>
+<div *ngIf="parent" class="container mt-5 m-5" style="display: flex;justify-content: space-between;margin-bottom: 0px!important;">
+
+  <h2 >Bienvenu {{parent.nom}} {{parent.prenom}} </h2>
+  <button class="btn btn-primary" [disabled]="parent.statutPayement==true"
+                                            data-bs-toggle="modal" data-bs-target="#myModal"
+                                            style="float: right;width: 200px" routerLink="/add-parent">Payer</button>
+</div>
+<div *ngIf="parent" style="display: flex; justify-content:space-evenly">
+  <div class="card ">
+    <h4 class="card-title">Informations du parent</h4>
+  <p class="champs-parent">Nom : {{parent.nom}}</p>
+  <p class="champs-parent">Prenom : {{parent.prenom}}</p>
+  <p class="champs-parent">CNE : {{parent.cne}}</p>
+  <p class="champs-parent">Email : {{parent.email}}</p>
+  <p class="champs-parent">Numero de telephone : {{parent.tel}}</p>
+  <p class="champs-parent">Statut de payement :
+    <span *ngIf="parent.statutPayement==true" style="color: #0bd000"><i class="fa-solid fa-sack-dollar"></i> <i class="fa-sharp fa-solid fa-check"></i></span>
+    <span *ngIf="parent.statutPayement==false" style="color: darkred"><i class="fa-solid fa-sack-dollar"></i> <i class="fa-solid fa-xmark"></i></span>
+  </p>
+  </div>
+  <div *ngIf="enfant" class="card card2">
+    <h4 class="card-title">Informations de l'enfant</h4>
+    <p class="champs-parent">Nom : {{enfant.nom}}</p>
+    <p class="champs-parent">Prenom : {{parent.prenom}}</p>
+    <p class="champs-parent">Age : {{enfant.age}}</p>
+    <p class="champs-parent" *ngIf="enfant.niveau">Niveau : {{enfant.niveau.nom}}</p>
+    <p class="champs-parent">Infos : {{enfant.type}}</p>
+    
+  </div>
+</div>
