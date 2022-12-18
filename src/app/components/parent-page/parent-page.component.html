@@ -2,9 +2,15 @@
 <div *ngIf="parent" class="container mt-5 m-5" style="display: flex;justify-content: space-between;margin-bottom: 0px!important;">
 
   <h2 >Bienvenu {{parent.nom}} {{parent.prenom}} </h2>
-  <button class="btn btn-primary" [disabled]="parent.statutPayement==true"
-                                            data-bs-toggle="modal" data-bs-target="#myModal"
-                                            style="float: right;width: 200px" routerLink="/add-parent">Payer</button>
+  <div>
+  <button class="btn btn-light" [disabled]="parent.statutPayement==true"
+          data-bs-toggle="modal" data-bs-target="#myModal1"
+          style="float: right;width: 200px; background: aliceblue" routerLink="/add-parent"> <i class="fa-brands fa-paypal"></i> Paypal</button>
+  <button class="btn btn-light" [disabled]="parent.statutPayement==true"
+          data-bs-toggle="modal" data-bs-target="#myModal2"
+          style="float: right;width: 200px;margin-right: 10px; background: aliceblue" routerLink="/add-parent">
+    <i class="fa-solid fa-credit-card" style="margin-right: 10px"></i >Carte de crédit</button>
+  </div>
 </div>
 <div *ngIf="parent" style="display: flex; justify-content:space-evenly">
   <div class="card ">
@@ -26,6 +32,82 @@
     <p class="champs-parent">Age : {{enfant.age}}</p>
     <p class="champs-parent" *ngIf="enfant.niveau">Niveau : {{enfant.niveau.nom}}</p>
     <p class="champs-parent">Infos : {{enfant.type}}</p>
-    
+
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Ajouter un parent</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="container" style="width: 80%;">
+        <div class="container mr-5 mt-5">
+          <form [formGroup]="paypalFormGroup" >
+            <div class="form-group mt-3">
+              <label for="identifiant">Identifiant </label>
+              <input type="text" class="form-control" id="identifiant"  placeholder="Identifiant" formControlName="identifiant">
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="password">Mot de passe </label>
+              <input type="password" class="form-control" id="password"  placeholder="Mot de passe" formControlName="password">
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer" style="margin-top: 20px;display: flex;justify-content: center">
+        <button type="button" class="btn btn-primary"  style="width: 80%" (click)="payerParPaypal()" data-bs-dismiss="modal">Payer</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Payer par carte de crédit</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="container" style="width: 80%;">
+        <div class="container mr-5 mt-5">
+          <form [formGroup]="carteDeCreditFormGroup" >
+            <div class="form-group mt-3">
+              <label for="numeroCarte">Numéro de la carte </label>
+              <input type="text" class="form-control" id="numeroCarte"  placeholder="Numéro de la carte" formControlName="numeroCarte">
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="cryptogramme">Cryptogramme </label>
+              <input type="cryptogramme" class="form-control" id="cryptogramme"  placeholder="Cryptogramme" formControlName="cryptogramme">
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer" style="margin-top: 20px;display: flex;justify-content: center">
+        <button type="button" class="btn btn-primary"  style="width: 80%" (click)="payerParCarte()" data-bs-dismiss="modal">Payer</button>
+      </div>
+
+    </div>
   </div>
 </div>

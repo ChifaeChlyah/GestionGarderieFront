@@ -72,12 +72,18 @@ export class HttpService {
     return this.http.delete(url, options);
   }
 
-  getParent(id: string | null):Observable<HttpResponse<ParentModel>>{
+  getParent(id: string | null | undefined):Observable<HttpResponse<ParentModel>>{
     return this.http.get<ParentModel>(environment.apiUrl+"parent/"+id,{observe:"response"});
   }
 
   getEnfantByParentId(id: string | null):Observable<HttpResponse<EnfantModel>>{
     return this.http.get<EnfantModel>(environment.apiUrl+"parent/enfantByParentId/"+id,{observe:"response"});
+  }
+
+  payer(id: string | null | undefined, startegy: String, donneePayement: any)
+  {
+    // environment.apiUrl+
+    return this.http.post("http://localhost:8080/parent/payer/"+id+"/"+startegy,donneePayement,{observe:"response"});
   }
 
 
