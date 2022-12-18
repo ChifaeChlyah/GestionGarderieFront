@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListEnfantsComponent } from './components/enfants/list-enfants.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ChooseConnectionComponent } from './components/choose-connection/choose-connection.component';
 import { ListParentComponent } from './components/parents/list-parent/list-parent.component';
 import { ParentConnectionComponent } from './components/parent-connection/parent-connection.component';
@@ -32,12 +32,13 @@ import {ListAideEducComponent} from "./components/aide-educateur/list/list-aide-
     NavBarTopComponent,
     ListAideEducComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

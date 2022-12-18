@@ -13,6 +13,8 @@
             <th scope="col">Prenom</th>
             <th scope="col">Age</th>
             <th scope="col">niveau </th>
+            <th scope="col">Parent </th>
+            <th scope="col">Infos </th>
             <th scope="col"> Action </th>
           </tr>
         </thead>
@@ -22,6 +24,8 @@
             <td>{{enfant.prenom}}</td>
             <td>{{enfant.age}}</td>
             <td ><span *ngIf="enfant.niveau">{{enfant.niveau.nom}}</span></td>
+            <td ><span *ngIf="enfant.parent">{{enfant.parent.prenom+" "+enfant.parent.prenom}}</span></td>
+            <td>{{enfant.type}}</td>
             <td>
               <i class="fa-solid fa-trash" (click)="delete(enfant.id)" style="color: brown; width: 20px; font-size:large; margin-right: 30px; cursor: pointer;"></i>
               <i class="fa-solid fa-pen-to-square" style="width: 20px; font-size:large;cursor: pointer;"></i>
@@ -70,10 +74,10 @@
 
           <div class="form-group">
           <label for="special">Enfant spécial ? </label>
-          <select multiple class="form-select" id="special">
-            <option>ENFANT AUTISTE</option>
-            <option>ENFANT HYPERACTIF</option>
-            <option>ENFANT SURDOUE</option>
+          <select [(ngModel)]="typeEnfant" multiple class="form-select" id="special" [ngModelOptions]="{standalone: true}">
+            <option [value]="'ENFANT_AUTISTE'">ENFANT AUTISTE</option>
+            <option [value]="'ENFANT_HYPERACTIF'">ENFANT HYPERACTIF</option>
+            <option [value]="'ENFANT_SURDOUE'">ENFANT SURDOUE</option>
           </select>
           </div>
           </div>

@@ -10,6 +10,7 @@ import {EnfantModel} from "../../models/Enfant.model";
   styleUrls: ['./list-enfants.component.css']
 })
 export class ListEnfantsComponent implements OnInit {
+  typeEnfant:String="ENFANT_NORMAL";
   enfantFormGroup !: FormGroup;
   enfants : EnfantModel[]=[];
   parentFormGroup !: FormGroup;
@@ -53,28 +54,29 @@ export class ListEnfantsComponent implements OnInit {
       nom : new FormControl('', [Validators.required ] ),
       prenom : new FormControl('', [Validators.required] ),
       age : new FormControl('',Validators.required ),
-
+      parent: new FormControl('')
     })
   }
   save(){
-    // this.httpService.post("enfant/ENFANT_NORMAL",this.enfantFormGroup.value).subscribe(
-    //   (response:any)=>{
-    //     console.log("done ==> ", response)
-    //     this.getEnfants();
-    //   } , (err : any )=>  {
-    //     console.log(err);
-    //   }
-    // )
-    this.parentFormGroup.value.enfant=this.enfantFormGroup.value;
-    this.httpService.post("parent",this.parentFormGroup.value).subscribe(
+    this.enfantFormGroup.value.parent=this.parentFormGroup.value;
+    this.httpService.post("enfant/"+this.typeEnfant,this.enfantFormGroup.value).subscribe(
       (response:any)=>{
         console.log("done ==> ", response)
         this.getEnfants();
       } , (err : any )=>  {
         console.log(err);
-
       }
     )
+
+    // this.httpService.post("parent",this.parentFormGroup.value).subscribe(
+    //   (response:any)=>{
+    //     console.log("done ==> ", response)
+    //     this.getEnfants();
+    //   } , (err : any )=>  {
+    //     console.log(err);
+    //
+    //   }
+    // )
     console.log(this.parentFormGroup)
   }
 
@@ -88,7 +90,6 @@ export class ListEnfantsComponent implements OnInit {
       email : new FormControl('',Validators.required ),
       motDePasse : new FormControl('',Validators.required ),
       tel : new FormControl('',Validators.required ),
-      enfant :new FormControl('' ),
     });
   }
   saveParent(){

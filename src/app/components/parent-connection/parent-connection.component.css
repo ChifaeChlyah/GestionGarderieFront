@@ -15,7 +15,7 @@
 
 #right-form{
   width: 50%;
-  background: #12426c;
+  background: #011533;
   color: white;
   display: flex;
   justify-content: center;
@@ -37,7 +37,7 @@
   justify-content: center;
   height: 540px;
   background: white;
-  border: #12426c 3px solid;
+  border: #011533 3px solid;
   /*border: 2px solid rgba(136, 14, 79, 0.26);*/
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
