@@ -1,0 +1,90 @@
+<div>
+    <div class="container mt-5 m-5">
+
+        <h2>List des Activités </h2> <button class="btn btn-primary"
+                                                  data-bs-toggle="modal" data-bs-target="#myModal"
+                                                  style="float: right;" routerLink="/add-parent"> Ajouter Activite</button>
+    </div>
+
+    <div class="conainer mt-5 mb-5 m-5">
+        <table class="table">
+            <caption> List des Activités </caption>
+            <thead>
+              <tr>
+
+                <th scope="col">Nom </th>
+                <th scope="col">Description</th>
+                <th scope="col">Prix</th>
+
+                <th scope="col"> Action </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let activitie of activities">
+                <td>{{activitie.nom}}</td>
+                <td>{{activitie.description}}</td>
+                <td>{{activitie.prix}}</td>
+
+                <td>
+                <i class="fa-solid fa-trash" (click)="delete(activitie.id)" style="color: brown; width: 20px; font-size:large; margin-right: 30px; cursor: pointer;"></i>
+                <i class="fa-solid fa-pen-to-square" style="width: 20px; font-size:large;cursor: pointer;"></i>
+
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+    </div>
+
+
+</div>
+
+
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Ajouter une activité</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="container" style="width: 80%;">
+          <div class="container mr-5 mt-5">
+            <form [formGroup]="activitieFormGroup" >
+
+
+                <div class="form-group mt-3">
+                  <label for="nom">Nom </label>
+                  <input type="text" class="form-control" id="nom"  placeholder="Enter nom" formControlName="nom">
+                </div>
+
+                <div class="form-group mt-3">
+                  <label for="description">Description </label>
+                  <textarea type="text" class="form-control" id="description"  placeholder="Enter description" formControlName="description"></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                  <label for="cne"> prix </label>
+                  <input type="number" class="form-control" id="prix"  placeholder="Enter cne" formControlName="prix">
+                </div>
+
+
+              </form>
+          </div>
+        </div>
+
+
+        <!-- Modal footer -->
+        <div class="modal-footer" style="margin-top: 20px;display: flex;justify-content: center">
+          <button type="button" class="btn btn-primary"  style="width: 80%" (click)="save()" data-bs-dismiss="modal">Save</button>
+        </div>
+
+      </div>
+    </div>
+  </div>

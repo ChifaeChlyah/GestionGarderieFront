@@ -20,3 +20,8 @@
   margin: 10px;
   border-bottom: 1px solid gray;
 }
+.payement{
+  position: absolute;
+  top: 105px;
+  background: white;
+}

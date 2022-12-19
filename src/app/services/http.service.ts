@@ -75,6 +75,21 @@ export class HttpService {
   getParent(id: string | null | undefined):Observable<HttpResponse<ParentModel>>{
     return this.http.get<ParentModel>(environment.apiUrl+"parent/"+id,{observe:"response"});
   }
+  getParents():Observable<HttpResponse<ParentModel[]>>{
+    return this.http.get<ParentModel[]>(environment.apiUrl+"parent",{observe:"response"});
+  }
+  getEnfant():Observable<HttpResponse<EnfantModel[]>>{
+    return this.http.get<EnfantModel[]>(environment.apiUrl+"enfant",{observe:"response"});
+  }
+
+  getActivite():Observable<HttpResponse<any[]>>{
+    return this.http.get<any[]>(environment.apiUrl+"activite",{observe:"response"});
+  }
+
+
+  getAideEuc():Observable<HttpResponse<any[]>>{
+    return this.http.get<any[]>(environment.apiUrl+"aideEducateur",{observe:"response"});
+  }
 
   getEnfantByParentId(id: string | null):Observable<HttpResponse<EnfantModel>>{
     return this.http.get<EnfantModel>(environment.apiUrl+"parent/enfantByParentId/"+id,{observe:"response"});

@@ -16,6 +16,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { SideBarComponent } from './components/dashboard-admin/side-bar/side-bar.component';
 import { NavBarTopComponent } from './components/nav-bar-top/nav-bar-top.component';
 import {ListAideEducComponent} from "./components/aide-educateur/list/list-aide-educ.component";
+import {ActivitieComponent} from "./components/dashboard-admin/activite/activitie.component";
+import { AcceuilComponent } from './components/dashboard-admin/acceuil/acceuil.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {ListAideEducComponent} from "./components/aide-educateur/list/list-aide-
     ParentPageComponent,
     SideBarComponent,
     NavBarTopComponent,
-    ListAideEducComponent
+    ListAideEducComponent,
+    ActivitieComponent,
+    AcceuilComponent
   ],
     imports: [
         BrowserModule,

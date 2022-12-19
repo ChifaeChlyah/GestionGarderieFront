@@ -2,13 +2,17 @@
 <div *ngIf="parent" class="container mt-5 m-5" style="display: flex;justify-content: space-between;margin-bottom: 0px!important;">
 
   <h2 >Bienvenu {{parent.nom}} {{parent.prenom}} </h2>
-  <div>
+  <div style="border: 1px dotted gray;border-radius: 5px;padding: 10px">
+    <p class="payement">Payement
+      <span *ngIf="parent.statutPayement==true" style="color: #0bd000"><i class="fa-solid fa-sack-dollar"></i> <i class="fa-sharp fa-solid fa-check"></i></span>
+      <span *ngIf="parent.statutPayement==false" style="color: darkred"><i class="fa-solid fa-sack-dollar"></i> <i class="fa-solid fa-xmark"></i></span>
+    </p>
   <button class="btn btn-light" [disabled]="parent.statutPayement==true"
           data-bs-toggle="modal" data-bs-target="#myModal1"
-          style="float: right;width: 200px; background: aliceblue" routerLink="/add-parent"> <i class="fa-brands fa-paypal"></i> Paypal</button>
+          style="float: right;width: 200px; background: #011533;color: white" routerLink="/add-parent"> <i class="fa-brands fa-paypal"></i> Paypal</button>
   <button class="btn btn-light" [disabled]="parent.statutPayement==true"
           data-bs-toggle="modal" data-bs-target="#myModal2"
-          style="float: right;width: 200px;margin-right: 10px; background: aliceblue" routerLink="/add-parent">
+          style="float: right;width: 200px;margin-right: 10px; background: #011533;color: white" routerLink="/add-parent">
     <i class="fa-solid fa-credit-card" style="margin-right: 10px"></i >Carte de crédit</button>
   </div>
 </div>
@@ -43,7 +47,7 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Ajouter un parent</h4>
+        <h4 class="modal-title">Payer par paypal</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 

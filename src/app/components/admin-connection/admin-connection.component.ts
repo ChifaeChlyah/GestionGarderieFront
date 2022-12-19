@@ -32,7 +32,7 @@ export class AdminConnectionComponent {
         resp=>{
             console.log(resp.body);
             if(resp.body==true)
-              this.router.navigateByUrl("dashboard-admin")
+              this.router.navigateByUrl("dashboard-admin/accueil")
             else
               this.mode=1;
         },

@@ -8,6 +8,8 @@ import {AdminConnectionComponent} from "./components/admin-connection/admin-conn
 import {ParentConnectionComponent} from "./components/parent-connection/parent-connection.component";
 import {DashboardAdminComponent} from "./components/dashboard-admin/dashboard-admin.component";
 import {ParentPageComponent} from "./components/parent-page/parent-page.component";
+import {ActivitieComponent} from "./components/dashboard-admin/activite/activitie.component";
+import {AcceuilComponent} from "./components/dashboard-admin/acceuil/acceuil.component";
 
 
 const routes: Routes = [
@@ -16,9 +18,11 @@ const routes: Routes = [
   {path: "parent-connection",component : ParentConnectionComponent},
   {path: "dashboard-admin",component : DashboardAdminComponent,
     children:[
+      {path: "accueil",component : AcceuilComponent},
       {path: "list-parents",component : ListParentComponent},
       {path: "list-enfants",component : ListEnfantsComponent},
       {path: "list-aide-educateur",component : ListEdu},
+      {path: "list-activites",component : ActivitieComponent},
     ]},
   {path: "parent-page/:id",component : ParentPageComponent},
 
